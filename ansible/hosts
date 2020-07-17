@@ -1,0 +1,14 @@
+k8s01 ansible_host=10.110.83.1
+
+k8s02 ansible_host=10.110.83.2
+
+k8s03 ansible_host=10.110.83.3
+
+[k8s]
+k8s01
+k8s02
+k8s03
+
+[linux:children]
+k8s
+

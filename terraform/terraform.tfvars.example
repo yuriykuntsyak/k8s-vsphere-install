@@ -1,0 +1,21 @@
+vsphere_user_name = ""
+vsphere_user_password = ""
+vsphere_server_fqdn = ""
+
+
+datacenter = ""
+esxi_host = ""
+vsphere_network = ""
+resource_pool = ""
+datastore_name = ""
+template_name = ""
+
+virtual_machine_name_prefix = "k8s0"
+virtual_machine_domain = ""
+virtual_machine_ip_address_start = "0"
+virtual_machine_tot_num = "3"
+virtual_machine_network_address = "10.110.83."
+virtual_machine_netmask_bits = "16"
+virtual_machine_gateway = "10.110.0.1"
+virtual_machine_dns_servers = ["10.110.1.51", "10.110.1.50", "8.8.8.8"]
+

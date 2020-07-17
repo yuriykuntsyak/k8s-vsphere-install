@@ -1,0 +1,26 @@
+---
+
+- name: Prepare Kubernetes hosts
+  hosts: "{{ targets }}"
+  tasks:
+    - name: Remove swap from fstab
+      lineinfile:
+        path: /etc/fstab
+        state: absent
+        regexp: .*swap.*
+      notify: Restart server
+
+    - meta: flush_handlers
+
+    - name: Check if swap is disabled
+      shell: free | grep Swap
+      register: result
+      changed_when: false
+      failed_when: result.stdout is not match('Swap:(\s+0){3}')
+
+  handlers:
+    - name: Restart server
+      reboot:
+        reboot_timeout: 300
+
+...
